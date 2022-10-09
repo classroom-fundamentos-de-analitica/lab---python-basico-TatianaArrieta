@@ -53,6 +53,10 @@ def pregunta_02():
     data = a.readlines()
     a.close()
     
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+    
     T1= [T[i][0] for i in range (len(T))]
     L=[("A",T1.count("A")),("B",T1.count("B")),("C",T1.count("C")),("D",T1.count("D")),("E",T1.count("E"))]
 
