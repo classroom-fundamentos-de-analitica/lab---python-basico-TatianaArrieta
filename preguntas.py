@@ -21,10 +21,8 @@ def pregunta_01():
     214
 
     """
-    url = "https://raw.githubusercontent.com/classroom-fundamentos-de-analitica/lab---python-basico-TatianaArrieta/main/data.csv"
-    !wget --quiet {url} -P /tmp/
-    !ls -1 /tmp/*
-    with open("/tmp/data.csv?token=GHSAT0AAAAAABZXERSFXQBKQ4XKV7QG3CFMY2C4W4A", "r") as file:
+    
+    with open("data.cvs", "r") as file:
       data = file.readlines()
     T=[]
     for i in range(len(data)):
