@@ -78,7 +78,19 @@ def pregunta_03():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+        T.append(data[i].strip().split("\t"))
+
+    dic = {"A":0, "B":0, "C":0, "D":0,"E":0}
+
+    for fila in T:
+        dic[fila[0]] += int(fila[1])
+    L=[("A",dic["A"]),("B",dic["B"]),("C",dic["C"]),("D",dic["D"]),("E",dic["E"])]
+    return L
 
 
 def pregunta_04():
