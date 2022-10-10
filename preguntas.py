@@ -216,7 +216,7 @@ def pregunta_06():
 
     for key in dic:
       L.append( (key , min(dic[key]) , max(dic[key])) )
-     return L
+    return L
 
 
 def pregunta_07():
