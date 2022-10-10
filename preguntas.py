@@ -209,7 +209,7 @@ def pregunta_06():
     for fila in H:
       for elemento in fila:
         A= elemento.split(":")
-        dic[A[0]].append(A[1])
+        dic[A[0]].append(int(A[1]))
 
     L = []
 
