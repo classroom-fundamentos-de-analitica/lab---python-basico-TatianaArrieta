@@ -115,7 +115,26 @@ def pregunta_04():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T2= [T[i][2] for i in range (len(T))]
+    #print(T2)
+
+    Lmeses = []
+    for j in T2:
+      Lmeses.append(j.split("-")[1])
+
+    meses=["01","02","03","04","05","06","07","08","09","10","11","12"]
+    L = []
+
+    for mes in meses:
+      L.append((mes,Lmeses.count(mes)))
+    return L
 
 
 def pregunta_05():
