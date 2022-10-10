@@ -153,18 +153,18 @@ def pregunta_05():
 
     """
     a= open("data.csv","r")
-data = a.readlines()
-a.close()
-T=[]
-for i in range(len(data)):
-  T.append(data[i].strip().split("\t"))
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
 
-dic = {"A":[], "B":[], "C":[], "D":[],"E":[]}
+    dic = {"A":[], "B":[], "C":[], "D":[],"E":[]}
 
-for fila in T:
-  dic[fila[0]].append(int(fila[1]))
-L=[("A",max(dic["A"]), min(dic["A"])),("B",max(dic["B"]), min(dic["B"])),("C",max(dic["C"]), min(dic["C"])),("D",max(dic["D"]), min(dic["D"])),("E",max(dic["E"]), min(dic["E"]))]
-    return
+    for fila in T:
+      dic[fila[0]].append(int(fila[1]))
+    L=[("A",max(dic["A"]), min(dic["A"])),("B",max(dic["B"]), min(dic["B"])),("C",max(dic["C"]), min(dic["C"])),("D",max(dic["D"]), min(dic["D"])),("E",max(dic["E"]), min(dic["E"]))]
+    return L
 
 
 def pregunta_06():
