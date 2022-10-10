@@ -189,7 +189,34 @@ def pregunta_06():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T3= [T[i][4] for i in range (len(T))]
+
+    H = []
+    for j in T3:
+      H.append(j.split(","))
+    #print(H)
+
+
+    dic = {"aaa":[], "bbb":[], "ccc":[], "ddd":[],"eee":[],"fff":[], "ggg":[], "hhh":[], "iii":[],"jjj":[]}
+
+    for fila in H:
+      for elemento in fila:
+        A= elemento.split(":")
+        dic[A[0]].append(A[1])
+
+    L = []
+
+
+    for key in dic:
+      L.append( (key , min(dic[key]) , max(dic[key])) )
+     return L
 
 
 def pregunta_07():
