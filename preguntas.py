@@ -365,7 +365,21 @@ def pregunta_10():
 
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T1= [T[i][0] for i in range (len(T))]
+    T3= [len(T[i][3].split(",")) for i in range (len(T))]
+    T4= [len(T[i][4].split(",")) for i in range (len(T))]
+
+    L= []
+    for i in range (len(T1)):
+      L.append((T1[i],T3[i],T4[i]))
+    return L
 
 
 def pregunta_11():
