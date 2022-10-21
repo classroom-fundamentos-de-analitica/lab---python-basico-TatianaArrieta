@@ -400,7 +400,29 @@ def pregunta_11():
 
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T1= [int(T[i][1]) for i in range (len(T))]
+    T3= [T[i][3].split(",") for i in range (len(T))]
+
+    dic={
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "g": 0,
+        }
+    for i in range (len(T1)):
+      for letra in T3[i]:
+        dic[letra]+= T1[i]
+    return dic
 
 
 def pregunta_12():
