@@ -440,4 +440,28 @@ def pregunta_12():
     }
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T1= [(T[i][0]) for i in range (len(T))]
+    T4= [T[i][4].split(",") for i in range (len(T))]
+
+    dic={
+            'A': 0,
+            'B': 0,
+            'C': 0,
+            'D': 0,
+            'E': 0
+        }
+    for i in range (len(T1)):
+      L1= T4[i]
+      L2= []
+      for elemento in L1:
+        L2.append(int(elemento.split(":")[1]))
+      dic[T1[i]]+= sum(L2)
+    print(dic)
+    return dic
