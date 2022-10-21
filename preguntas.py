@@ -319,7 +319,32 @@ def pregunta_09():
     }
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T9= [T[i][4] for i in range (len(T))]
+
+    dic={
+            "aaa": 0,
+            "bbb": 0,
+            "ccc": 0,
+            "ddd": 0,
+            "eee": 0,
+            "fff": 0,
+            "ggg": 0,
+            "hhh": 0,
+            "iii": 0,
+            "jjj": 0,
+        }
+    for key in dic:
+      for elemento in T9:
+        if key in elemento:
+          dic[key]+=1
+    return dic
 
 
 def pregunta_10():
