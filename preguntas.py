@@ -280,7 +280,23 @@ def pregunta_08():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    dic = {"0":[], "1":[], "2":[], "3":[],"4":[],"5":[], "6":[], "7":[], "8":[],"9":[]}
+
+    for fila in T:
+      if fila[0] not in dic[fila[1]]:
+        dic[fila[1]].append((fila[0]))
+
+    L = []
+    for key in dic:
+        L.append((int(key) , sorted(dic[key])))
+    return L
 
 
 def pregunta_09():
