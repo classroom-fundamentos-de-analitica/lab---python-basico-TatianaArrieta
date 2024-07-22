@@ -21,7 +21,17 @@ def pregunta_01():
     214
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    suma = sum([int(T[i][1]) for i in range(len(T))])
+    
+    return suma
 
 
 def pregunta_02():
@@ -39,7 +49,18 @@ def pregunta_02():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+    
+    T1= [T[i][0] for i in range (len(T))]
+    L=[("A",T1.count("A")),("B",T1.count("B")),("C",T1.count("C")),("D",T1.count("D")),("E",T1.count("E"))]
+
+    return L
 
 
 def pregunta_03():
@@ -57,7 +78,19 @@ def pregunta_03():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+        T.append(data[i].strip().split("\t"))
+
+    dic = {"A":0, "B":0, "C":0, "D":0,"E":0}
+
+    for fila in T:
+        dic[fila[0]] += int(fila[1])
+    L=[("A",dic["A"]),("B",dic["B"]),("C",dic["C"]),("D",dic["D"]),("E",dic["E"])]
+    return L
 
 
 def pregunta_04():
@@ -82,7 +115,26 @@ def pregunta_04():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T2= [T[i][2] for i in range (len(T))]
+    #print(T2)
+
+    Lmeses = []
+    for j in T2:
+      Lmeses.append(j.split("-")[1])
+
+    meses=["01","02","03","04","05","06","07","08","09","10","11","12"]
+    L = []
+
+    for mes in meses:
+      L.append((mes,Lmeses.count(mes)))
+    return L
 
 
 def pregunta_05():
@@ -100,7 +152,19 @@ def pregunta_05():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    dic = {"A":[], "B":[], "C":[], "D":[],"E":[]}
+
+    for fila in T:
+      dic[fila[0]].append(int(fila[1]))
+    L=[("A",max(dic["A"]), min(dic["A"])),("B",max(dic["B"]), min(dic["B"])),("C",max(dic["C"]), min(dic["C"])),("D",max(dic["D"]), min(dic["D"])),("E",max(dic["E"]), min(dic["E"]))]
+    return L
 
 
 def pregunta_06():
@@ -125,7 +189,34 @@ def pregunta_06():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T3= [T[i][4] for i in range (len(T))]
+
+    H = []
+    for j in T3:
+      H.append(j.split(","))
+    #print(H)
+
+
+    dic = {"aaa":[], "bbb":[], "ccc":[], "ddd":[],"eee":[],"fff":[], "ggg":[], "hhh":[], "iii":[],"jjj":[]}
+
+    for fila in H:
+      for elemento in fila:
+        A= elemento.split(":")
+        dic[A[0]].append(int(A[1]))
+
+    L = []
+
+
+    for key in dic:
+      L.append( (key , min(dic[key]) , max(dic[key])) )
+    return L
 
 
 def pregunta_07():
@@ -149,7 +240,22 @@ def pregunta_07():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    dic = {"0":[], "1":[], "2":[], "3":[],"4":[],"5":[], "6":[], "7":[], "8":[],"9":[]}
+
+    for fila in T:
+      dic[fila[1]].append((fila[0]))
+
+    L = []
+    for key in dic:
+      L.append( (int(key) , (dic[key])))
+    return L
 
 
 def pregunta_08():
@@ -174,7 +280,23 @@ def pregunta_08():
     ]
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    dic = {"0":[], "1":[], "2":[], "3":[],"4":[],"5":[], "6":[], "7":[], "8":[],"9":[]}
+
+    for fila in T:
+      if fila[0] not in dic[fila[1]]:
+        dic[fila[1]].append((fila[0]))
+
+    L = []
+    for key in dic:
+        L.append((int(key) , sorted(dic[key])))
+    return L
 
 
 def pregunta_09():
@@ -197,7 +319,32 @@ def pregunta_09():
     }
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T9= [T[i][4] for i in range (len(T))]
+
+    dic={
+            "aaa": 0,
+            "bbb": 0,
+            "ccc": 0,
+            "ddd": 0,
+            "eee": 0,
+            "fff": 0,
+            "ggg": 0,
+            "hhh": 0,
+            "iii": 0,
+            "jjj": 0,
+        }
+    for key in dic:
+      for elemento in T9:
+        if key in elemento:
+          dic[key]+=1
+    return dic
 
 
 def pregunta_10():
@@ -218,7 +365,21 @@ def pregunta_10():
 
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T1= [T[i][0] for i in range (len(T))]
+    T3= [len(T[i][3].split(",")) for i in range (len(T))]
+    T4= [len(T[i][4].split(",")) for i in range (len(T))]
+
+    L= []
+    for i in range (len(T1)):
+      L.append((T1[i],T3[i],T4[i]))
+    return L
 
 
 def pregunta_11():
@@ -239,7 +400,29 @@ def pregunta_11():
 
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T1= [int(T[i][1]) for i in range (len(T))]
+    T3= [T[i][3].split(",") for i in range (len(T))]
+
+    dic={
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "g": 0,
+        }
+    for i in range (len(T1)):
+      for letra in T3[i]:
+        dic[letra]+= T1[i]
+    return dic
 
 
 def pregunta_12():
@@ -257,4 +440,28 @@ def pregunta_12():
     }
 
     """
-    return
+    a= open("data.csv","r")
+    data = a.readlines()
+    a.close()
+    T=[]
+    for i in range(len(data)):
+      T.append(data[i].strip().split("\t"))
+
+    T1= [(T[i][0]) for i in range (len(T))]
+    T4= [T[i][4].split(",") for i in range (len(T))]
+
+    dic={
+            'A': 0,
+            'B': 0,
+            'C': 0,
+            'D': 0,
+            'E': 0
+        }
+    for i in range (len(T1)):
+      L1= T4[i]
+      L2= []
+      for elemento in L1:
+        L2.append(int(elemento.split(":")[1]))
+      dic[T1[i]]+= sum(L2)
+    print(dic)
+    return dic
